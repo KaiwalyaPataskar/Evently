@@ -7,7 +7,7 @@ module GoogleCalendarApi
     response = connection.send('get') do |request|
       request.headers['Content-Type'] = 'application/json'
       request.headers['Authorization'] = "Bearer #{auth_config['access_token']}"
-      request.params['timeMin'] = '2021-12-15T05:30:00Z'
+      request.params['timeMin'] = Date.today.strftime('%FT%TZ')
     end
 
     if response&.body
